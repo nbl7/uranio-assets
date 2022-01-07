@@ -1,0 +1,19 @@
+/**
+ * Auto-generated starting file book
+ *
+ * @packageDocumentation
+ */
+
+import uranio from 'uranio';
+
+export const atom_book:uranio.types.Book = {
+	sample:{
+		plural: 'samples',
+		properties: {
+			title: {
+				type: uranio.types.BookPropertyType.TEXT,
+				label: 'Title'
+			}
+		}
+	}
+};

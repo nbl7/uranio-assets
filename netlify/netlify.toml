@@ -1,0 +1,19 @@
+[build]
+  command = "yarn build"
+  publish = "dist/client/"
+
+[functions]
+  directory = "dist/server/functions/"
+
+[[redirects]]
+  from = "/uranio/*"
+  to = "/.netlify/functions/:splat"
+  status = 200
+
+  [dev]
+    framework = "#custom"
+    command = "yarn dev:client --native"
+    targetPort = 6666
+    debug = true
+    port = 3333
+    publish = "dist"

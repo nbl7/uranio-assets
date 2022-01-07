@@ -1,0 +1,7 @@
+import uranio from '../uranio/';
+const uranio_lambda = uranio.lambda.connect_and_create();
+const handler = async (event:uranio.lambda.LambdaEvent, context:uranio.lambda.LambdaContext)
+		:Promise<uranio.lambda.HandlerResponse> => {
+	return await uranio_lambda.handle(event, context);
+};
+export { handler };
