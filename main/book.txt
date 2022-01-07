@@ -7,8 +7,8 @@
 import uranio from 'uranio';
 
 export const atom_book:uranio.types.Book = {
-	sample:{
-		plural: 'samples',
+	kart:{
+		plural: 'karts',
 		properties: {
 			title: {
 				type: uranio.types.BookPropertyType.TEXT,

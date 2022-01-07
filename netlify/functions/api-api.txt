@@ -1,4 +1,5 @@
 import uranio from '../uranio/';
+uranio.init();
 const uranio_lambda = uranio.lambda.connect_and_create();
 const handler = async (event:uranio.lambda.LambdaEvent, context:uranio.lambda.LambdaContext)
 		:Promise<uranio.lambda.HandlerResponse> => {
