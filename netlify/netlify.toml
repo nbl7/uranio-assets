@@ -13,7 +13,7 @@
   [dev]
     framework = "#custom"
     command = "yarn dev:client --native"
-    targetPort = 6666
+    targetPort = 5555
     debug = true
-    port = 3333
+    port = 4444
     publish = "dist"

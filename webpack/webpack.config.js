@@ -27,7 +27,7 @@ module.exports = {
 	devServer: {
 		static: '../../dist/client/',
 		hot: true,
-		port: 3333
+		port: 4444
 	},
 	output: {
 		filename: 'html.js',

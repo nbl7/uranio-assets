@@ -31,7 +31,7 @@ export default {
 		exclude: ['/urn-admin'],
 	},
 	server: {
-		port: 6666
+		port: 5555
 	},
 	router: {
 		trailingSlash: false,

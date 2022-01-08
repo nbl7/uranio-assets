@@ -31,7 +31,7 @@ export default {
 		exclude: ['/urn-admin'],
 	},
 	server: {
-		port: 3333,
+		port: 4444,
 		host: '0.0.0.0'
 	},
 	router: {
