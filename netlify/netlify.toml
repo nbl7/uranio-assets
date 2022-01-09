@@ -15,5 +15,5 @@
     command = "yarn dev:client --native"
     targetPort = 5555
     debug = true
-    port = 4444
+    port = 7777
     publish = "dist"
