@@ -1,0 +1,39 @@
+{
+	"compilerOptions": {
+		"alwaysStrict": true,
+		"allowJs": true,
+		"baseUrl": ".",
+		"declaration": false,
+		"esModuleInterop": true,
+		"experimentalDecorators": true,
+		"lib": ["ESNext", "ESNext.AsyncIterable", "DOM"],
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"noFallthroughCasesInSwitch": true,
+		"noImplicitThis": true,
+		"noImplicitAny": true,
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"outDir": "../../dist/server/",
+		"rootDir": "./src",
+		"paths": {
+			"uranio": ["./src/uranio"],
+			"uranio-books": ["./src/books"],
+			"uranio-books/*": ["./src/books/*"],
+			"uranio-core": ["./src/uranio/trx/api/core"],
+			"uranio-core/*": ["./src/uranio/trx/api/core/*"],
+			"uranio-api": ["./src/uranio/trx/api"],
+			"uranio-api/*": ["./src/uranio/trx/api/*"],
+			"uranio-trx": ["./src/uranio/trx"],
+			"uranio-trx/*": ["./src/uranio/trx/*"]
+		},
+		"skipLibCheck": true,
+		"sourceMap": true,
+		"strict": true,
+		"strictNullChecks": true,
+		"strictFunctionTypes": true,
+		"strictPropertyInitialization": true,
+		"target": "ES2018"
+	},
+	"include": ["./**/*"]
+}
