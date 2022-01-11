@@ -26,8 +26,6 @@ ARG deploy
 
 #RUN --mount=type=ssh uranio init --force -vu --prefix_color --repo=$repo --deploy=$deploy --pacman=$pacman --docker=false
 
-RUN yarn cache clean
-
 RUN --mount=type=ssh uranio init --force -vu --prefix_color --repo=$repo --deploy=$deploy --docker=false
 
 RUN chown -R node.node /app/.urnlog
