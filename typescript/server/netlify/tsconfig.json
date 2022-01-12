@@ -9,7 +9,6 @@
 		"lib": ["ESNext", "ESNext.AsyncIterable", "DOM"],
 		"module": "commonjs",
 		"moduleResolution": "node",
-		"noEmit": true,
 		"noFallthroughCasesInSwitch": true,
 		"noImplicitThis": true,
 		"noImplicitAny": true,
