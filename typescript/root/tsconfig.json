@@ -57,8 +57,8 @@
 		"fallbackPolling": "dynamicPriority",
 		"synchronousWatchDirectory": true,
 		"excludeFiles": [
-			"src/**/*.ts",
-			".uranio/.tmp/*.ts"
+			"src/**/*",
+			".uranio/.tmp/*"
 		]
 	}
 }
