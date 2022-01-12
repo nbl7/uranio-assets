@@ -66,13 +66,13 @@ export default {
 	hooks: {
 		build: {
 			before(){
-				console.log('BEFORE BUILD');
+				// console.log('BEFORE BUILD');
 			},
 			compile(){
-				console.log('BEFORE COMPILE');
+				// console.log('BEFORE COMPILE');
 			},
 			compiled(){
-				console.log('COMPILED');
+				// console.log('COMPILED');
 			}
 		}
 	}

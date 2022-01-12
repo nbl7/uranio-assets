@@ -36,5 +36,5 @@
 		"strictPropertyInitialization": true,
 		"target": "ES2018"
 	},
-	"include": ["./**/*"]
+	"include": ["./**/*.ts"]
 }

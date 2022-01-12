@@ -45,8 +45,8 @@
 		]
 	},
 	"include": [
-		"src/**/*",
-		".uranio/**/*"
+		"src/**/*.ts",
+		".uranio/**/*.ts"
 	],
 	"exclude": [
 		"node_modules"
@@ -57,8 +57,8 @@
 		"fallbackPolling": "dynamicPriority",
 		"synchronousWatchDirectory": true,
 		"excludeFiles": [
-			"src/**/*",
-			".uranio/.tmp/*"
+			"src/**/*.ts",
+			".uranio/.tmp/*.ts"
 		]
 	}
 }
