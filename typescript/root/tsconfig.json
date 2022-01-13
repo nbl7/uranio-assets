@@ -59,7 +59,7 @@
 		"synchronousWatchDirectory": true,
 		"excludeFiles": [
 			"src/**/*",
-			".uranio/.tmp/**/*"
+			".uranio/.tmp/**/*",
 			".uranio/client/**/*"
 		]
 	}
