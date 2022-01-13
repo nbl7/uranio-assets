@@ -3,9 +3,10 @@
 		"alwaysStrict": true,
 		"allowJs": true,
 		"baseUrl": ".",
-		"declaration": true,
+		"declaration": false,
 		"esModuleInterop": true,
 		"experimentalDecorators": true,
+		"incremental": true,
 		"lib": [
 			"ESNext",
 			"ESNext.AsyncIterable",
@@ -46,7 +47,7 @@
 	},
 	"include": [
 		"src/**/*.ts",
-		".uranio/**/*.ts"
+		".uranio/server/**/*.ts"
 	],
 	"exclude": [
 		"node_modules"
@@ -58,7 +59,8 @@
 		"synchronousWatchDirectory": true,
 		"excludeFiles": [
 			"src/**/*",
-			".uranio/.tmp/*"
+			".uranio/.tmp/**/*"
+			".uranio/client/**/*"
 		]
 	}
 }
