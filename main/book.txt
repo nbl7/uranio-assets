@@ -32,12 +32,12 @@ export const atom_book:uranio.types.Book = {
 					action: uranio.types.AuthAction.WRITE,
 					url: '/add-review',
 					query: ['stars'],
-					return: Boolean,
+					return: String,
 					call: async (
 						req:uranio.types.Api.Request<'product', 'add_review'>
-					):Promise<boolean> => {
-						console.log(req.query.stars);
-						return true;
+					):Promise<string> => {
+						console.log(req.query);
+						return req.query.stars;
 					}
 				}
 			}
