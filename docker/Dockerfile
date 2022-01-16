@@ -33,6 +33,10 @@ RUN chown -R node.node /app/uranio.json
 
 USER node
 
+ARG project
+
+LABEL project=$project
+
 CMD ["uranio", "dev", "-vu", "--prefix_color", "--color_uranio=false"]
 
 #CMD tail -f /dev/null

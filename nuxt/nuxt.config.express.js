@@ -18,10 +18,19 @@ export default {
 	srcDir: './src/uranio/nuxt/',
 	target: 'static',
 	ssr: false,
+	modules:[
+		'@nuxtjs/proxy'
+	],
 	buildModules: [
 		'@nuxt/typescript-build',
 		'@nuxtjs/style-resources'
 	],
+	proxy: {
+		'/uranio/api': {
+			target: 'http://localhost:7777/uranio/api',
+			pathRewrite: {'^/uranio/api/':''}
+		}
+	},
 	typescript: {
 		typeCheck: true
 	},
