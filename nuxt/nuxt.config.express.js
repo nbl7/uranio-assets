@@ -8,6 +8,11 @@ export default {
 		'uranio-core': resolve(__dirname, './src/uranio/trx/api/core/'),
 		'uranio-books': resolve(__dirname, './src/books/'),
 	},
+	env: {
+		URN_CLIENT_FETCH: process.env.URN_CLIENT_FETCH || 'axios',
+		URN_CLIENT_BASE_URL: process.env.URN_CLIENT_BASE_URL || 'http://localhost:4444',
+		URN_CLIENT_SEVICE_URL: process.env.URN_CLIENT_SERVICE_URL || 'http://localhost:4444/uranio/api'
+	},
 	components: [
 		{
 			path: '~/components/',
