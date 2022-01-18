@@ -10,8 +10,9 @@ export default {
 	},
 	env: {
 		URN_CLIENT_FETCH: process.env.URN_CLIENT_FETCH || 'axios',
-		URN_CLIENT_BASE_URL: process.env.URN_CLIENT_BASE_URL || 'http://localhost:4444',
-		URN_CLIENT_SEVICE_URL: process.env.URN_CLIENT_SERVICE_URL || 'http://localhost:4444/uranio/api'
+		URN_CLIENT_PROTOCOL: process.env.URN_CLIENT_PROTOCOL || 'http',
+		URN_CLIENT_DOMAIN: process.env.URN_CLIENT_DOMAIN || 'localhost',
+		URN_CLIENT_PORT: Number(process.env.URN_CLIENT_PORT) || 4444
 	},
 	components: [
 		{
