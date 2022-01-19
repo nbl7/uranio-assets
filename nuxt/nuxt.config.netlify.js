@@ -8,6 +8,12 @@ export default {
 		'uranio-core': resolve(__dirname, './src/uranio/trx/api/core/'),
 		'uranio-books': resolve(__dirname, './src/books/'),
 	},
+	env: {
+		NETLIFY: process.env.NETLIFY,
+		NETLIFY_DEV: process.env.NETLIFY_DEV,
+		NETLIFY_LOCAL: process.env.NETLIFY_LOCAL,
+		URL: process.env.URL
+	},
 	components: [
 		{
 			path: '~/components/',
