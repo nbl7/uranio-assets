@@ -12,7 +12,7 @@
 
   [dev]
     framework = "#custom"
-    command = "yarn dev:client --native"
+    command = "yarn dev:client --native --inside_ntl"
     targetPort = 5555
     debug = true
     port = 7777
