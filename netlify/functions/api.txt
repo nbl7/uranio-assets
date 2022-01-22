@@ -2,7 +2,7 @@ import {urn_log} from 'urn-lib';
 urn_log.init(urn_log.LogLevel.DEBUG, undefined, undefined, true);
 import uranio from '../uranio/';
 uranio.init();
-const uranio_lambda = uranio.api.lambda.connect_and_create();
+const uranio_lambda = uranio.api.lambda.create();
 const handler = async (event:uranio.api.lambda.LambdaEvent, context:uranio.api.lambda.LambdaContext)
 		:Promise<uranio.api.lambda.HandlerResponse> => {
 	return await uranio_lambda.handle(event, context);
