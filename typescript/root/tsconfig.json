@@ -37,8 +37,8 @@
 		]
 	},
 	"include": [
-		"src/**/*.ts",
-		".uranio/"
+		"src/**/*",
+		".uranio/**/*"
 	],
 	"exclude": [
 		"node_modules"
