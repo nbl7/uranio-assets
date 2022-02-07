@@ -37,7 +37,8 @@
 		]
 	},
 	"include": [
-		"src/**/*"
+		"src/**/*",
+		".uranio/generate/src/schema/**/*"
 	],
 	"exclude": [
 		"node_modules"
