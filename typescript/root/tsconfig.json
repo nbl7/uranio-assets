@@ -33,12 +33,11 @@
 		"target": "ES2018",
 		"typeRoots": [
 			"node_modules/@types",
-			".uranio/schema"
+			".uranio/generate/src/schema"
 		]
 	},
 	"include": [
-		"src/**/*",
-		".uranio/schema/**/*"
+		"src/**/*"
 	],
 	"exclude": [
 		"node_modules"
