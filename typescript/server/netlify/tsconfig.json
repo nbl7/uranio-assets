@@ -6,6 +6,7 @@
 		"declaration": false,
 		"esModuleInterop": true,
 		"experimentalDecorators": true,
+		"incremental": false,
 		"lib": ["ESNext", "ESNext.AsyncIterable", "DOM"],
 		"module": "commonjs",
 		"moduleResolution": "node",
@@ -18,8 +19,6 @@
 		"rootDir": "./src",
 		"paths": {
 			"uranio": ["./src/uranio"],
-			"uranio-books": ["./src/books"],
-			"uranio-books/*": ["./src/books/*"],
 			"uranio-core": ["./src/uranio/trx/api/core"],
 			"uranio-core/*": ["./src/uranio/trx/api/core/*"],
 			"uranio-api": ["./src/uranio/trx/api"],
@@ -33,7 +32,11 @@
 		"strictNullChecks": true,
 		"strictFunctionTypes": true,
 		"strictPropertyInitialization": true,
-		"target": "ES2018"
+		"target": "ES2018",
+		"typeRoots": [
+			"../../node_modules/@types",
+			".src/schema"
+		]
 	},
-	"include": ["./**/*.ts"]
+	"include": ["./src/**/*.ts"]
 }
