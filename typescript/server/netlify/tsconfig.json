@@ -35,7 +35,7 @@
 		"target": "ES2018",
 		"typeRoots": [
 			"../../node_modules/@types",
-			".src/schema"
+			"./src/schema"
 		]
 	},
 	"include": ["./src/**/*.ts"]
