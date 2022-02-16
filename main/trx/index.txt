@@ -8,6 +8,7 @@ import {urn_log} from 'urn-lib';
 urn_log.init(urn_log.LogLevel.DEBUG);
 
 import uranio from 'uranio';
+uranio.init();
 
 const express_service = uranio.api.service.create();
 
