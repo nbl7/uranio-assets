@@ -16,7 +16,7 @@
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
 		"outDir": "../../dist/server/",
-		"rootDir": "./src",
+		"rootDir": "./",
 		"paths": {
 			"uranio-core": ["./src/uranio/trx/api/core"],
 			"uranio-core/*": ["./src/uranio/trx/api/core/*"],
@@ -34,7 +34,7 @@
 		"target": "ES2018",
 		"typeRoots": [
 			"../../node_modules/@types",
-			"./src/schema"
+			"./types"
 		]
 	},
 	"include": ["./src/**/*.ts"]

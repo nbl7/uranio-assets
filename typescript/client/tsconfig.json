@@ -16,7 +16,7 @@
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
 		"outDir": "../../dist/client",
-		"rootDir": "./src",
+		"rootDir": "./",
 		"paths": {
 			"uranio-core": ["./src/uranio/trx/api/core"],
 			"uranio-core/*": ["./src/uranio/trx/api/core/*"],
@@ -35,7 +35,7 @@
 		"typeRoots": [
 			"../../node_modules/@types",
 			"../../node_modules/@nuxt/types",
-			"./src/schema"
+			"./types"
 		]
 	},
 	"files": ["./src/uranio/client.ts"],
