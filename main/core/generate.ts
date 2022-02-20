@@ -5,7 +5,11 @@
  */
 
 import {urn_log} from 'urn-lib';
-urn_log.init(urn_log.LogLevel.DEBUG);
+urn_log.init({
+	log_level: urn_log.LogLevel.DEBUG,
+	debug_info: false,
+	prefix: '[generate]'
+});
 
 import uranio from 'uranio';
 
