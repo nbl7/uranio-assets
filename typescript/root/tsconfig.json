@@ -21,17 +21,8 @@
 		"noUnusedLocals": true,
 		"noUnusedParameters": true,
 		"outDir": "./dist",
-		"rootDir": "./",
+		"rootDir": "./src",
 		"paths": {
-			"uranio": [
-				"./src/uranio"
-			],
-			"uranio-books": [
-				"./src/books"
-			],
-			"uranio-books/*": [
-				"./src/books/*"
-			]
 		},
 		"skipLibCheck": true,
 		"sourceMap": true,
@@ -41,26 +32,13 @@
 		"strictPropertyInitialization": true,
 		"target": "ES2018",
 		"typeRoots": [
-			"node_modules/@types",
-			".uranio/generate/types"
+			"node_modules/@types"
 		]
 	},
 	"include": [
-		"src/**/*",
-		".uranio/generate/types/**/*"
+		"src/**/*"
 	],
 	"exclude": [
 		"node_modules"
-	],
-	"watchOptions": {
-		"watchFile": "useFsEvents",
-		"watchDirectory": "useFsEvents",
-		"fallbackPolling": "dynamicPriority",
-		"synchronousWatchDirectory": true,
-		"excludeFiles": [
-			"src/**/*",
-			".uranio/.tmp/**/*",
-			".uranio/client/**/*"
-		]
-	}
+	]
 }
