@@ -28,7 +28,9 @@ ARG repo
 
 RUN --mount=type=ssh uranio init --force -vu --prefix_color --repo=$repo --docker=false
 
-RUN chown -R node.node /app/*
+RUN chown -R node.node /app/.env
+RUN chown -R node.node /app/uranio.toml
+RUN chown -R node.node /app/package.json
 
 RUN cat .bash_docker >> ~/.bashrc
 
