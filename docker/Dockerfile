@@ -8,8 +8,6 @@ RUN chown -R node.node /app
 
 COPY .uranio/.docker/.bash_docker /app
 
-RUN cat .bash_docker >> ~/.bashrc
-
 ENV TERM xterm-256color
 
 RUN mkdir ~/.ssh/ && ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
@@ -30,8 +28,9 @@ ARG repo
 
 RUN --mount=type=ssh uranio init --force -vu --prefix_color --repo=$repo --docker=false
 
-RUN chown -R node.node /app/.urnlog
-RUN chown -R node.node /app/.uranio/.uranio.json
+RUN chown -R node.node /app/*
+
+RUN cat .bash_docker >> ~/.bashrc
 
 USER node
 
