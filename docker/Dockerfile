@@ -29,6 +29,7 @@ RUN chown -R node.node /app/.env
 RUN chown -R node.node /app/uranio.toml
 RUN chown -R node.node /app/package.json
 RUN chown -R node.node /app/.bash_docker
+RUN chown -R node.node /app/.urnlog
 
 RUN cat .bash_docker >> ~/.bashrc
 
