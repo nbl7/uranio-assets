@@ -19,11 +19,8 @@ COPY package.json /app
 ARG repo
 
 #ARG deploy
-
 #ARG pacman
-
 #RUN --mount=type=ssh uranio init --force -vu --prefix_color --repo=$repo --deploy=$deploy --pacman=$pacman --docker=false
-
 #RUN --mount=type=ssh uranio init --force -vu --prefix_color --repo=$repo --deploy=$deploy --docker=false
 
 RUN --mount=type=ssh uranio init --force -vu --prefix_color --repo=$repo --docker=false
@@ -31,6 +28,7 @@ RUN --mount=type=ssh uranio init --force -vu --prefix_color --repo=$repo --docke
 RUN chown -R node.node /app/.env
 RUN chown -R node.node /app/uranio.toml
 RUN chown -R node.node /app/package.json
+RUN chown -R node.node /app/.bash_docker
 
 RUN cat .bash_docker >> ~/.bashrc
 
@@ -40,6 +38,6 @@ ARG project
 
 LABEL project=$project
 
-#CMD ["uranio", "dev", "-vu", "--prefix_color", "--color_uranio=false"]
+CMD ["uranio", "dev", "-vu", "--prefix_color", "--color_uranio=false"]
 
-CMD tail -f /dev/null
+#CMD tail -f /dev/null
