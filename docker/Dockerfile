@@ -20,16 +20,18 @@ COPY package.json /app
 
 ARG repo
 
-ARG deploy
+#ARG deploy
 
 #ARG pacman
 
 #RUN --mount=type=ssh uranio init --force -vu --prefix_color --repo=$repo --deploy=$deploy --pacman=$pacman --docker=false
 
-RUN --mount=type=ssh uranio init --force -vu --prefix_color --repo=$repo --deploy=$deploy --docker=false
+#RUN --mount=type=ssh uranio init --force -vu --prefix_color --repo=$repo --deploy=$deploy --docker=false
+
+RUN --mount=type=ssh uranio init --force -vu --prefix_color --repo=$repo --docker=false
 
 RUN chown -R node.node /app/.urnlog
-RUN chown -R node.node /app/uranio.json
+RUN chown -R node.node /app/.uranio/.uranio.json
 
 USER node
 
