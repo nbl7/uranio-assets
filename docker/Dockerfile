@@ -4,15 +4,15 @@ FROM node:16
 
 WORKDIR /app
 
-RUN chown -R node.node /app
-
-USER node
-
 ENV TERM xterm-256color
 
 RUN mkdir ~/.ssh/ && ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 
 RUN --mount=type=ssh yarn global add uranio-cli
+
+RUN chown -R node.node /app
+
+USER node
 
 COPY package.json /app
 
