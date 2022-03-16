@@ -6,7 +6,7 @@ WORKDIR /app
 
 RUN chown -R node.node /app
 
-COPY .uranio/.docker/.bash_docker /app
+USER node
 
 ENV TERM xterm-256color
 
@@ -15,6 +15,10 @@ RUN mkdir ~/.ssh/ && ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 RUN --mount=type=ssh yarn global add uranio-cli
 
 COPY package.json /app
+
+COPY .uranio/.docker/.bash_docker /app
+
+RUN cat .bash_docker >> ~/.bashrc
 
 ARG repo
 
@@ -25,15 +29,15 @@ ARG repo
 
 RUN --mount=type=ssh uranio init --force -vu --prefix_color --repo=$repo --docker=false
 
-RUN chown -R node.node /app/.env
-RUN chown -R node.node /app/uranio.toml
-RUN chown -R node.node /app/package.json
-RUN chown -R node.node /app/.bash_docker
-RUN chown -R node.node /app/.urnlog
+#RUN chown -R node.node /app/.env
+#RUN chown -R node.node /app/uranio.toml
+#RUN chown -R node.node /app/package.json
+#RUN chown -R node.node /app/.bash_docker
+#RUN chown -R node.node /app/.urnlog
 
-RUN cat .bash_docker >> ~/.bashrc
+#RUN cat .bash_docker >> ~/.bashrc
 
-USER node
+#USER node
 
 ARG project
 
