@@ -6,7 +6,7 @@
 		"declaration": false,
 		"esModuleInterop": true,
 		"experimentalDecorators": true,
-		"incremental": true,
+		"incremental": false,
 		"lib": [
 			"ESNext",
 			"ESNext.AsyncIterable",
