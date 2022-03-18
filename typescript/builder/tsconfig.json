@@ -1,0 +1,3 @@
+{
+	"extends": "./.uranio/tsconfig.json"
+}
