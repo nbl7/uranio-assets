@@ -23,6 +23,7 @@
 		"outDir": "./dist",
 		"rootDir": "./src",
 		"paths": {
+			"uranio-schema": ["./uranio-schema/dist/index.d.ts"]
 		},
 		"skipLibCheck": true,
 		"sourceMap": true,
