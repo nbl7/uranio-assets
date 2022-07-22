@@ -15,7 +15,7 @@ export default uranio.register.route({
 	params: {
 		ids: {array: true}
 	},
-	return: 'number',
+	return: 'Promise<number>',
 	call: async (route_request: uranio.types.Api.Request<'product', 'add_review'>): Promise<number> => {
 		console.log(route_request);
 		return 1;
