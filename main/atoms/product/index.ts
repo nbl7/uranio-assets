@@ -15,7 +15,7 @@ export default uranio.register.atom({
 	},
 	properties: {
 		title: {
-			type: uranio.types.PropertyType.EMAIL,
+			type: uranio.types.PropertyType.TEXT,
 			label: 'Title'
 		},
 		price: {
