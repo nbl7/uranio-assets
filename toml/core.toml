@@ -9,6 +9,9 @@ prefix_api = '/uranio/api'
 prefix_log = '/logs'
 lambda = 'netlify'
 fetch = 'axios'
+[default_atoms]
+	user = true
+	media = true
 [log]
 	debug_info = true
 	color = true
