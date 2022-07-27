@@ -27,6 +27,7 @@ RUN chown -R node.node /app/package.json
 RUN chown -R node.node /app/.env
 RUN chown -R node.node /app/uranio.toml
 RUN chown -R node.node /app/.urnlog
+RUN chown -R node.node /app/.uranio
 
 USER node
 
