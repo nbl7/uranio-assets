@@ -8,7 +8,7 @@ ENV TERM xterm-256color
 
 RUN mkdir ~/.ssh/ && ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 
-RUN --mount=type=ssh yarn global add uranio-cli
+RUN --mount=type=ssh yarn global add uranio
 
 RUN chown -R node.node /app
 
