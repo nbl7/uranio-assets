@@ -18,9 +18,9 @@ ARG repo
 
 #ARG deploy
 #ARG pacman
+
 #RUN --mount=type=ssh uranio init --force -vu --prefix_color --repo=$repo --deploy=$deploy --pacman=$pacman --docker=false
 #RUN --mount=type=ssh uranio init --force -vu --prefix_color --repo=$repo --deploy=$deploy --docker=false
-
 RUN --mount=type=ssh uranio init --force -u --repo=$repo --docker=false --prefix_color
 
 RUN chown -R node.node /app/package.json
@@ -28,6 +28,7 @@ RUN chown -R node.node /app/.env
 RUN chown -R node.node /app/uranio.toml
 RUN chown -R node.node /app/.urnlog
 RUN chown -R node.node /app/.uranio/uranio-schema
+RUN chown -R node.node /app/cert
 
 USER node
 
