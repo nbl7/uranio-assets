@@ -39,6 +39,6 @@ ARG project
 
 LABEL project=$project
 
-CMD ["uranio", "dev", "-u", "--prefix_color"]
+CMD ["uranio", "dev", "-u", "--blank"]
 
 #CMD tail -f /dev/null
