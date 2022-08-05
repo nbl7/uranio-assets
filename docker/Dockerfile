@@ -12,7 +12,8 @@ RUN --mount=type=ssh yarn global add uranio
 
 RUN chown -R node.node /app
 
-COPY package.json /app
+# it will copy cert only if exists
+COPY package.json cert /app
 
 ARG repo
 
