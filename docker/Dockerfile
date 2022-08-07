@@ -22,7 +22,7 @@ ARG repo
 
 #RUN --mount=type=ssh uranio init --force -vu --prefix_color --repo=$repo --deploy=$deploy --pacman=$pacman --docker=false
 #RUN --mount=type=ssh uranio init --force -vu --prefix_color --repo=$repo --deploy=$deploy --docker=false
-RUN --mount=type=ssh uranio init --force -u --repo=$repo --docker=false --prefix_color
+RUN --mount=type=ssh uranio init --force -u --repo=$repo --docker=false --prefix_loglevel
 
 # RUN chown -R node.node /app/package.json
 RUN chown -R node.node /app/.env
@@ -41,6 +41,6 @@ ARG project
 
 LABEL project=$project
 
-CMD ["uranio", "dev", "-u", "--blank", "--prefix_color"]
+CMD ["uranio", "dev", "-u", "--prefix_loglevel"]
 
 #CMD tail -f /dev/null
