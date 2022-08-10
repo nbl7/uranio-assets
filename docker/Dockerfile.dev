@@ -44,3 +44,4 @@ LABEL project=$project
 CMD ["uranio", "dev", "-u", "--prefix_loglevel"]
 
 #CMD tail -f /dev/null
+#CMD sleep infinity

@@ -32,4 +32,5 @@ ARG project
 
 LABEL project=$project
 
-CMD ["uranio", "start", "--prefix_loglevel"]
+# CMD ["uranio", "start", "--prefix_loglevel"]
+CMD tail -f /dev/null
