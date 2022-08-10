@@ -15,7 +15,7 @@ COPY --chown=node:node package.json cert /app/
 
 ARG repo
 
-RUN --mount=type=ssh uranio init --force --repo=$repo --prefix_loglevel
+RUN --mount=type=ssh uranio init --force --repo=$repo --docker=false --prefix_loglevel
 
 RUN chown -R node.node /app/.env
 RUN chown -R node.node /app/uranio.toml
