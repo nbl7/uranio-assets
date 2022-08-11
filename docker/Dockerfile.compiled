@@ -1,0 +1,92 @@
+#syntax=docker/dockerfile:experimental
+
+## --------------------------------------------------------------------------
+## BUILDER
+## Make new stage for uranio init
+FROM node:16 as builder
+WORKDIR /app
+ARG project
+LABEL project=$project
+
+## This is needed in order to download private repos when calling
+## `yarn global add uranio`.
+## A valid ssh key pairs must be installed on the host machine.
+## The ssh key must be loaded on the terminal agent.
+## If not already loaded run `ssh-add -K`
+RUN mkdir ~/.ssh/ && ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+
+## This install uranio cli on the container
+## as global package
+RUN --mount=type=ssh yarn global add uranio
+
+## This is needed in order for uranio to write
+## inside the /app directory
+RUN chown -R node.node /app
+
+## The following syntax allow to copy the directory `cert`
+## only if exists without COPY failing if it does not.
+COPY --chown=node:node package.json cert /app/
+
+ARG repo
+
+## The flag -u set the log_level to the maximum. This is needed so that
+## uranio-cli will filter what to log and what not.
+## The flag --force allow to run the command without any prompt question.
+## The flag --prefix_loglevel prefixes the log_level to each log line so
+## that uranio-cli wiil be able to color the logs.
+## The flag --docker must be set equal to false since the command is running
+## inside docker already.
+## --mount=type=ssh allow to use the host ssh key for downloading private repos.
+RUN --mount=type=ssh uranio init -u --force --repo=$repo --docker=false --prefix_loglevel
+
+## Changing permission for the file created by the above
+## command `uranio init`
+RUN chown -R node.node /app/.env
+RUN chown -R node.node /app/uranio.toml
+RUN chown -R node.node /app/.urnlog
+RUN chown -R node.node /app/.uranio/uranio-schema
+
+## Copy bash file with usefull bash command
+## Needed for developing only
+# COPY .uranio/.docker/.bash_docker /app
+# RUN cat .bash_docker >> ~/.bashrc
+
+## Copy the src directory before building
+## This layer should be the last so that when updating the file only
+## what comes next is re-build
+COPY --chown=node:node ./src /app/src
+
+## The flag -u set the log_level to the maximum. This is needed so that
+## uranio-cli will filter what to log and what not.
+## The flag --prefix_loglevel prefixes the log_level to each log line so
+## that uranio-cli wiil be able to color the logs.
+RUN uranio build -u --prefix_log_level
+
+## --------------------------------------------------------------------------
+## STARTER
+## Make new stage for uranio build
+FROM node:16-alpine as starter
+WORKDIR /app
+ARG project
+LABEL project=$project
+USER node
+
+## Copy the compiled js file from the previous stage to
+## /app/compiled/
+COPY --from=builder \
+	/app/.uranio/compiled \
+	.
+
+## The flag --build run the build method before starting uranio
+## The flag -u set the log_level to the maximum. This is needed so that
+## uranio-cli will filter what to log and what not.
+## The flag --prefix_loglevel prefixes the log_level to each log line so
+## that uranio-cli wiil be able to color the logs.
+# CMD ["uranio", "start", "-u", "--prefix_loglevel"]
+
+## Run the node compiled script
+CMD ["node", "/app/compiled/uranio.js"]
+
+
+
+
