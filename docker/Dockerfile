@@ -38,6 +38,8 @@ ARG project
 
 LABEL project=$project
 
+COPY src .
+
 # CMD ["uranio", "start", "-u", "--build", "--prefix_loglevel", ".--prod="]
 CMD uranio start -u --build --prefix_loglevel --prod=$production
 
