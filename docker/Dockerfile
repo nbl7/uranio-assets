@@ -37,6 +37,6 @@ RUN chown -R node.node /app/.uranio
 USER node
 
 # COPY --chown=node:node src .env uranio.toml /app/
-COPY . .
+COPY --chown=node:node . .
 
 CMD uranio start -u --build --prefix_loglevel --prod=$production
