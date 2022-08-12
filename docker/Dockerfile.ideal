@@ -2,7 +2,7 @@
 
 ## --------------------------------------------------------------------------
 ## BUILDER
-## Make new stage for uranio init
+## Make new stage for uranio init/build
 FROM node:16 as builder
 WORKDIR /app
 ARG project

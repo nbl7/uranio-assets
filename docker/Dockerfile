@@ -15,7 +15,13 @@ COPY --chown=node:node package.json cert /app/
 
 ARG repo
 
-RUN --mount=type=ssh uranio init -u --force --repo=$repo --docker=false --prefix_loglevel
+ARG production
+
+RUN --mount=type=ssh uranio init -u --force \
+	--repo=$repo \
+	--docker=false \
+	--prefix_loglevel \
+	--prod=$production
 
 RUN chown -R node.node /app/.env
 RUN chown -R node.node /app/uranio.toml
@@ -32,7 +38,8 @@ ARG project
 
 LABEL project=$project
 
-CMD ["uranio", "start", "-u", "--build", "--prefix_loglevel"]
+# CMD ["uranio", "start", "-u", "--build", "--prefix_loglevel", ".--prod="]
+CMD uranio start -u --build --prefix_loglevel --prod=$production
 
 # CMD tail -f /dev/null
 # CMD ["uranio", "dev", "-u", "--prefix_loglevel"]
