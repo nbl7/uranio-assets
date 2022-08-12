@@ -28,7 +28,8 @@ RUN --mount=type=ssh,uid=1000 uranio init -u --force \
 	--prod=$production
 
 RUN chown -R node.node /app/.urnlog
-RUN chown -R node.node /app/node_modules
+RUN chown -R node.node /app/node_modules/uranio*
+RUN chown -R node.node /app/node_modules/urn*
 RUN chown -R node.node /app/.uranio
 # RUN chown -R node.node /app/.env
 # RUN chown -R node.node /app/uranio.toml
@@ -37,6 +38,7 @@ RUN chown -R node.node /app/.uranio
 USER node
 
 # COPY --chown=node:node src .env uranio.toml /app/
-COPY --chown=node:node . .
+# COPY --chown=node:node . .
+COPY . .
 
 CMD uranio start -u --build --prefix_loglevel --prod=$production
