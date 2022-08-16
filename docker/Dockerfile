@@ -21,7 +21,9 @@ ARG project
 
 LABEL project=$project
 
-RUN --mount=type=ssh,uid=1000 uranio init -u --force \
+RUN --mount=type=ssh,uid=1000 uranio init \
+	-u \
+	--force \
 	--repo=$repo \
 	--docker=false \
 	--prefix_loglevel \
