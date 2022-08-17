@@ -27,7 +27,7 @@ RUN --mount=type=ssh,uid=1000 uranio init \
 	-u \
 	--force \
 	--repo=$repo \
-	--prefix_loglevel \
+	--prefix_loglevel
 
 RUN chown -R node.node /app/node_modules/uranio* \
 	&& chown -R node.node /app/.uranio
