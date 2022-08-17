@@ -30,7 +30,7 @@ RUN --mount=type=ssh,uid=1000 uranio init \
 	--prefix_loglevel \
 
 RUN chown -R node.node /app/node_modules/uranio* \
-	chown -R node.node /app/.uranio
+	&& chown -R node.node /app/.uranio
 
 USER node
 
