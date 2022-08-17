@@ -18,7 +18,7 @@ RUN --mount=type=ssh,uid=1000 yarn global add uranio
 COPY package.json /app/
 
 ARG repo
-# ARG production
+ARG production
 ARG project
 
 LABEL project=$project
@@ -27,15 +27,22 @@ RUN --mount=type=ssh,uid=1000 uranio init \
 	-u \
 	--force \
 	--repo=$repo \
+	--docker=false \
 	--prefix_loglevel \
+	--prod=$production
 
-RUN chown -R node.node /app/node_modules/uranio* \
-	chown -R node.node /app/.uranio
+RUN chown -R node.node /app/.urnlog
+RUN chown -R node.node /app/node_modules/uranio*
+RUN chown -R node.node /app/node_modules/urn*
+RUN chown -R node.node /app/.uranio
+# RUN chown -R node.node /app/.env
+# RUN chown -R node.node /app/uranio.toml
+# RUN chown -R node.node /app/.uranio/uranio-schema
 
 USER node
 
+# COPY --chown=node:node src .env uranio.toml /app/
+# COPY --chown=node:node . .
 COPY . .
 
-CMD uranio start -u --prefix_loglevel
-# CMD uranio start -u --prefix_loglevel --prod=$production
-# CMD uranio dev -u --prefix_loglevel --prod=$production
+CMD uranio start -u --build --prefix_loglevel --prod=$production
