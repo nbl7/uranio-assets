@@ -1,19 +1,19 @@
 #syntax=docker/dockerfile:experimental
 
-# FROM node:16
-# WORKDIR /app
+FROM node:16
+WORKDIR /app
 
-# RUN chown -R node.node /app
+RUN chown -R node.node /app
 
-# COPY .uranio/.docker/.bash_docker /app
-# RUN cat .bash_docker >> /root/.bashrc
-# RUN cat .bash_docker >> /home/node/.bashrc
+COPY .uranio/.docker/.bash_docker /app
+RUN cat .bash_docker >> /root/.bashrc
+RUN cat .bash_docker >> /home/node/.bashrc
 
-# RUN mkdir ~/.ssh/ && ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
+RUN mkdir ~/.ssh/ && ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 
-# RUN --mount=type=ssh,uid=1000 yarn global add uranio
+RUN --mount=type=ssh,uid=1000 yarn global add uranio
 
-FROM x71c9/uranio:latest
+# FROM x71c9/uranio:latest
 
 COPY package.json /app/
 
