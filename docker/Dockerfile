@@ -5,9 +5,9 @@ WORKDIR /app
 
 RUN chown -R node.node /app
 
-COPY .uranio/.docker/.bash_docker /app
-RUN cat .bash_docker >> /root/.bashrc
-RUN cat .bash_docker >> /home/node/.bashrc
+RUN cp .uranio/.docker/.bash_docker /app \
+	&& cat .bash_docker >> /root/.bashrc \
+	&& cat .bash_docker >> /home/node/.bashrc
 
 RUN mkdir ~/.ssh/ && ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 
@@ -17,7 +17,6 @@ RUN --mount=type=ssh,uid=1000 yarn global add uranio
 
 COPY package.json /app/
 
-# ARG production
 ARG repo
 ARG project
 
@@ -35,9 +34,6 @@ USER node
 
 COPY . .
 
-# CMD uranio start -u --prefix_loglevel
-# CMD uranio start -u --prefix_loglevel --prod=$production
-# CMD uranio dev -u --prefix_loglevel --prod=$production
 # CMD tail -f /dev/null
 
 CMD uranio start -u --prefix_loglevel --prod
