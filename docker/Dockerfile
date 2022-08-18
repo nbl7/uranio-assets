@@ -36,4 +36,4 @@ COPY . .
 
 # CMD tail -f /dev/null
 
-CMD uranio start -u --prefix_loglevel --prod
+CMD uranio start -u --prod
