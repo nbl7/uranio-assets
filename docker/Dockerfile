@@ -5,8 +5,8 @@ WORKDIR /app
 
 RUN chown -R node.node /app
 
-RUN cp .uranio/.docker/.bash_docker /app \
-	&& cat .bash_docker >> /root/.bashrc \
+COPY.uranio/.docker/.bash_docker /app
+RUN cat .bash_docker >> /root/.bashrc \
 	&& cat .bash_docker >> /home/node/.bashrc
 
 RUN mkdir ~/.ssh/ && ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
