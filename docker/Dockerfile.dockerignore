@@ -11,3 +11,5 @@ node_modules/
 !.uranio/.docker/
 .urnlog
 
+.env
+cert/
