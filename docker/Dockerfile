@@ -17,17 +17,17 @@ RUN --mount=type=ssh,uid=1000 yarn global add uranio
 
 COPY package.json /app/
 
-ARG repo
 # ARG production
+ARG repo
 ARG project
 
 LABEL project=$project
 
 RUN --mount=type=ssh,uid=1000 uranio init \
+	--prefix_loglevel \
 	-u \
 	--force \
-	--repo=$repo \
-	--prefix_loglevel
+	--repo=$repo
 
 RUN chown -R node.node /app/node_modules/uranio* \
 	&& chown -R node.node /app/.uranio
