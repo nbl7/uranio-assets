@@ -38,5 +38,6 @@ COPY . .
 # CMD uranio start -u --prefix_loglevel
 # CMD uranio start -u --prefix_loglevel --prod=$production
 # CMD uranio dev -u --prefix_loglevel --prod=$production
+# CMD tail -f /dev/null
 
-CMD tail -f /dev/null
+CMD uranio start -u --prefix_loglevel --prod
