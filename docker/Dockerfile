@@ -8,9 +8,6 @@ WORKDIR /app
 
 RUN chown -R node.node /app
 
-COPY .uranio/.docker/.bash_docker /app
-RUN cat .bash_docker >> /root/.bashrc && cat .bash_docker >> /home/node/.bashrc
-
 RUN mkdir ~/.ssh/ && ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 
 RUN --mount=type=ssh,uid=1000 yarn global add uranio
@@ -36,9 +33,14 @@ USER node
 FROM node:16 as starter
 WORKDIR /app
 
+COPY .uranio/.docker/.bash_docker /app
+RUN cat .bash_docker >> /root/.bashrc && cat .bash_docker >> /home/node/.bashrc
+
 USER node
 
 COPY --from=initializer /app /app
+COPY --from=initializer /home/node/.yarn /home/node/.yarn
+COPY --from=initializer /home/node/.config/yarn /home/node/.config/yarn
 
 COPY . .
 
