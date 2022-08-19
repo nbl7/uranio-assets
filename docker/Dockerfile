@@ -9,8 +9,7 @@ WORKDIR /app
 RUN chown -R node.node /app
 
 COPY .uranio/.docker/.bash_docker /app
-RUN cat .bash_docker >> /root/.bashrc \
-	&& cat .bash_docker >> /home/node/.bashrc
+RUN cat .bash_docker >> /root/.bashrc && cat .bash_docker >> /home/node/.bashrc
 
 RUN mkdir ~/.ssh/ && ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 
@@ -25,11 +24,7 @@ ARG project
 
 LABEL project=$project
 
-RUN --mount=type=ssh,uid=1000 uranio init \
-	--prefix_loglevel \
-	-u \
-	--force \
-	--repo=$repo
+RUN --mount=type=ssh,uid=1000 uranio init --prefix_loglevel -u --force --repo=$repo
 
 RUN chown -R node.node /app/node_modules/uranio* && chown -R node.node /app/.uranio
 
