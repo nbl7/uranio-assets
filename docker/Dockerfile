@@ -1,6 +1,9 @@
 #syntax=docker/dockerfile:experimental
 
-FROM node:16
+## --------------------------------------------------------------------------
+## INITIALIZER
+## Make stage for uranio init
+FROM node:16 as initializer
 WORKDIR /app
 
 RUN chown -R node.node /app
@@ -31,6 +34,16 @@ RUN --mount=type=ssh,uid=1000 uranio init \
 RUN chown -R node.node /app/node_modules/uranio* && chown -R node.node /app/.uranio
 
 USER node
+
+## --------------------------------------------------------------------------
+## STARTER
+## Make stage for uranio start
+FROM node:16 as starter
+WORKDIR /app
+
+USER node
+
+COPY --from=initializer /app /app
 
 COPY . .
 
