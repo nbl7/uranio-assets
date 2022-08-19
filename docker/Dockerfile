@@ -6,7 +6,7 @@
 FROM node:16 as initializer
 WORKDIR /app
 
-RUN chown -R node.node /app
+# RUN chown -R node.node /app
 
 RUN mkdir ~/.ssh/ && ssh-keyscan -t rsa github.com >> ~/.ssh/known_hosts
 
@@ -36,8 +36,6 @@ WORKDIR /app
 COPY .uranio/.docker/.bash_docker /app
 RUN cat .bash_docker >> /root/.bashrc && cat .bash_docker >> /home/node/.bashrc
 
-USER node
-
 COPY --from=initializer /app /app
 COPY --from=initializer /usr/local/share/.config/yarn /usr/local/share/.config/yarn
 COPY --from=initializer /usr/local/bin /usr/local/bin
@@ -45,7 +43,11 @@ COPY --from=initializer /usr/local/bin /usr/local/bin
 # COPY --from=initializer /usr/local/bin/uranio /usr/local/bin/uranio
 # COPY --from=initializer /usr/local/bin/urn /usr/local/bin/urn
 
-COPY . .
+RUN chown -R node.node /app
+
+USER node
+
+COPY --chown=node:node . .
 
 # CMD tail -f /dev/null
 
