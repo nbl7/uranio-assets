@@ -42,6 +42,9 @@ COPY --from=initializer /app /app
 COPY --from=initializer /usr/local/share/.config/yarn /usr/local/share/.config/yarn
 COPY --from=initializer /usr/local/bin /usr/local/bin
 
+# COPY --from=initializer /usr/local/bin/uranio /usr/local/bin/uranio
+# COPY --from=initializer /usr/local/bin/urn /usr/local/bin/urn
+
 COPY . .
 
 # CMD tail -f /dev/null
