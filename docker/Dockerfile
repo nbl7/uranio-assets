@@ -39,8 +39,8 @@ RUN cat .bash_docker >> /root/.bashrc && cat .bash_docker >> /home/node/.bashrc
 USER node
 
 COPY --from=initializer /app /app
-COPY --from=initializer /home/node/.yarn /home/node/.yarn
-COPY --from=initializer /home/node/.config/yarn /home/node/.config/yarn
+COPY --from=initializer /usr/local/share/.config/yarn /usr/local/share/.config/yarn
+COPY --from=initializer /usr/local/bin /usr/local/bin
 
 COPY . .
 
