@@ -36,14 +36,14 @@ WORKDIR /app
 COPY .uranio/.docker/.bash_docker /app
 RUN cat .bash_docker >> /root/.bashrc && cat .bash_docker >> /home/node/.bashrc
 
-COPY --from=initializer /app /app
+COPY --from=initializer --chown=node:node /app /app
 COPY --from=initializer /usr/local/share/.config/yarn /usr/local/share/.config/yarn
 COPY --from=initializer /usr/local/bin /usr/local/bin
 
 # COPY --from=initializer /usr/local/bin/uranio /usr/local/bin/uranio
 # COPY --from=initializer /usr/local/bin/urn /usr/local/bin/urn
 
-RUN chown -R node.node /app
+# RUN chown -R node.node /app
 
 USER node
 
