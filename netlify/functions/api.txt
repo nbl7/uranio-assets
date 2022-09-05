@@ -1,4 +1,4 @@
-import {urn_log} from 'urn-lib';
+import {urn_log} from 'uranio-utils';
 urn_log.init(urn_log.LogLevel.DEBUG, undefined, undefined, true);
 import uranio from '../uranio/';
 uranio.init();
