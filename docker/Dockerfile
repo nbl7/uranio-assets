@@ -51,4 +51,4 @@ COPY --chown=node:node . .
 
 # CMD tail -f /dev/null
 
-CMD uranio start -u --prod
+CMD uranio start --prod
